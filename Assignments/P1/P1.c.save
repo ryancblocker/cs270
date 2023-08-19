@@ -1,0 +1,93 @@
+// Author: Ryan Blocker
+// Date:   8/25/2021
+// Class:  CS270
+// Email:  rblocker@colostate.edu
+
+// Include files
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int input[5];
+
+int output[4];
+
+// example of a global array
+int exampleGlobalArray[2];
+
+// this function can be used as a guide for the funtions you will implement
+void computeCircle(double radius, double *addressOfArea)
+{
+    // Compute area
+    double result = 3.141593 * radius * radius;
+
+    // Dereference pointer to return result
+    *addressOfArea = result;
+}
+
+void computeSphere(double radius,double *addressOfVolumeS)
+{
+	//compute volume
+	double result2 = (4.0/3.0)* 3.141593*radius*radius*radius;
+	//result pointer
+	*addressOfVolumeS = result2;
+} 
+
+void computeCube(double  side, double *addressOfVolumeC)
+{
+	//compute volume
+	double result3 = side*side*side;
+	//result pointer
+	*addressOfVolumeC = result3;
+}
+
+void computeTetrahedron(double side, double *addressOfVolumeT)
+{
+	//compute volume
+	double result4 = 0.117851*side*side*side;
+	//result pointer
+	*addressOfVolumeT = result4;
+}
+
+void computeCylinder(double radius, double height, double *addressOfVolumeCL)
+{
+	//compute volume
+	double result5 = 3.141593*radius*radius*height;
+	//result pointer
+	*addressOfVolumeCL = result5;
+}
+
+int main(int argc, char *argv[])
+{
+    // Check number of arguments
+    if (argc <= 5) {
+        printf("usage: ./P1 <double> <double> <double> <double> <double>");
+        return EXIT_FAILURE;
+	}
+
+	//pass in input, and output
+	computeSphere(input[0], output[0]);
+	computeCube(input[1], output[1]);
+	computeTetrahedron(input[2], output[2]);
+	computeCylinder(input[3], input[4], output[3];
+
+    	// Parse arguments
+    	input[0] = atof(argv[1]);
+	input[1] = atof(argv[2]);
+	input[2] = atof(argv[3]);
+	input[3] = atof(argv[4]);
+	input[4] = atof(argv[5]);
+
+
+    // Local variable
+    double area;
+
+    // Call function
+    computeCircle(radius, &area);
+
+    // Print area
+    printf("The area of a circle with radius %.5f equals %.5f.\n", radius, area);
+
+    // Return success
+    return EXIT_SUCCESS;
+}
